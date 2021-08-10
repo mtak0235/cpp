@@ -6,7 +6,7 @@
 /*   By: mtak <mtak@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/07 20:31:19 by mtak              #+#    #+#             */
-/*   Updated: 2021/08/08 17:07:04 by mtak             ###   ########.fr       */
+/*   Updated: 2021/08/10 17:31:40 by mtak             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,20 +20,14 @@
 class Contact
 {
 	private:
-	static std::string infoName[11];
-	std::string info[11];
+	static std::string infoName[5];
+	std::string info[5];
 	
 	enum Field {
 		FirstName = 0,
 		LastName,
 		Nickname,
-		Login,
-		Address,
-		Email,
 		Phone,
-		Birthday,
-		FavoriteMeal,
-		UnderwearColor,
 		Secret
 	};
 

@@ -6,7 +6,7 @@
 /*   By: mtak <mtak@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/07 20:30:50 by mtak              #+#    #+#             */
-/*   Updated: 2021/08/09 16:39:41 by mtak             ###   ########.fr       */
+/*   Updated: 2021/08/10 18:16:35 by mtak             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,24 +33,18 @@ void Contact::showLimitedInfo()
 	for (int i = FirstName; i <= Nickname; i++)
 	{
 		if (info[i].length() >= 10)
-			std::cout << info[i].substr(0, 9) << ".";
+			std::cout << std::setw(11) << info[i].substr(0, 9) + ".";
 		else
 			std::cout <<std::setw(11) << info[i];
 	}
 	std::cout << std::endl;
 }
 
-std::string Contact::infoName[11] = {
+std::string Contact::infoName[5] = {
 	"First Name",
 	"Last Name",
 	"Nickname",
-	"Login",
-	"Address",
-	"E-mail",
 	"Phone",
-	"Birthday",
-	"Favorite Meal",
-	"Underwear Color",
 	"Darkest Secret"
 };
 

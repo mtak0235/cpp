@@ -6,7 +6,7 @@
 /*   By: mtak <mtak@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/07 20:30:39 by mtak              #+#    #+#             */
-/*   Updated: 2021/08/09 16:53:41 by mtak             ###   ########.fr       */
+/*   Updated: 2021/08/10 18:10:26 by mtak             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,8 @@ void PhoneBook::searchContact()
 	if (!(0 <= idx && idx < 8))
 	{
 		std::cout << "Wrong Idx" << std::endl;
+		std::cin.clear();
+		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 		return;
 	}
 	if (idx < contactCnt)
