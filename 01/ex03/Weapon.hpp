@@ -1,32 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PhoneBook.hpp                                      :+:      :+:    :+:   */
+/*   Weapon.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mtak <mtak@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/07 20:30:25 by mtak              #+#    #+#             */
-/*   Updated: 2021/08/12 17:56:32 by mtak             ###   ########.fr       */
+/*   Created: 2021/08/12 19:53:34 by mtak              #+#    #+#             */
+/*   Updated: 2021/08/12 20:22:24 by mtak             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHONEBOOK_HPP
-#define PHONEBOOK_HPP
+#ifndef WEAPON_HPP
+# define WEAPON_HPP
 
-#include "Contact.hpp"
-#include <stdexcept>
-#include <limits>
+#include <iostream>
+#include <string>
 
-class PhoneBook
+class Weapon
 {
 	private:
-	Contact contact[8];
-
+		std::string type;
 	public:
-	static int contactCnt;
-	static int idxController;
-	void addContact();
-	void searchContact();
+		std::string const &getType() const;
+		void setType(std::string type);
+		Weapon(std::string type);
+		~Weapon();
 };
 
 #endif

@@ -1,32 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PhoneBook.hpp                                      :+:      :+:    :+:   */
+/*   HumanA.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mtak <mtak@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/07 20:30:25 by mtak              #+#    #+#             */
-/*   Updated: 2021/08/12 17:56:32 by mtak             ###   ########.fr       */
+/*   Created: 2021/08/12 20:57:04 by mtak              #+#    #+#             */
+/*   Updated: 2021/08/12 21:42:41 by mtak             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHONEBOOK_HPP
-#define PHONEBOOK_HPP
+#include "HumanA.hpp"
 
-#include "Contact.hpp"
-#include <stdexcept>
-#include <limits>
-
-class PhoneBook
+void HumanA::attack()
 {
-	private:
-	Contact contact[8];
+	std::cout << this->name << "attacks with his" << this->weapon.getType() << std::endl;
+}
 
-	public:
-	static int contactCnt;
-	static int idxController;
-	void addContact();
-	void searchContact();
-};
+HumanA::HumanA(std::string name, Weapon &weapon):name(name), weapon(weapon)
+{
+	std::cout << "Constructor" << std::endl;
+}
 
-#endif
+HumanA::~HumanA()
+{
+	std::cout << "Destructor" << std::endl;
+}
+
+void HumanA::setName(std::string name)
+{
+	this->name = name;
+}

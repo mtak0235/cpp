@@ -1,32 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PhoneBook.hpp                                      :+:      :+:    :+:   */
+/*   Zombie.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mtak <mtak@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/07 20:30:25 by mtak              #+#    #+#             */
-/*   Updated: 2021/08/12 17:56:32 by mtak             ###   ########.fr       */
+/*   Created: 2021/08/10 20:52:02 by mtak              #+#    #+#             */
+/*   Updated: 2021/08/12 17:23:36 by mtak             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHONEBOOK_HPP
-#define PHONEBOOK_HPP
+#include "Zombie.hpp"
 
-#include "Contact.hpp"
-#include <stdexcept>
-#include <limits>
-
-class PhoneBook
+void Zombie::announce()
 {
-	private:
-	Contact contact[8];
+	std::cout << "<" + this->name + ">" << " BraiiiiiiinnnzzzZ..." << std::endl;
+}
 
-	public:
-	static int contactCnt;
-	static int idxController;
-	void addContact();
-	void searchContact();
-};
+Zombie::~Zombie()
+{
+	std::cout << "<" + this->name + ">" << "RIP..." << std::endl;
 
-#endif
+}
+
+Zombie::Zombie()
+{
+	std::cout << "Revived!!!" << std::endl;
+}
+
+void Zombie::setZombie(std::string name)
+{
+	this->name = name;
+}

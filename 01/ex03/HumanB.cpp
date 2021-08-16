@@ -1,32 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PhoneBook.hpp                                      :+:      :+:    :+:   */
+/*   HumanB.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mtak <mtak@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/07 20:30:25 by mtak              #+#    #+#             */
-/*   Updated: 2021/08/12 17:56:32 by mtak             ###   ########.fr       */
+/*   Created: 2021/08/12 21:01:25 by mtak              #+#    #+#             */
+/*   Updated: 2021/08/12 21:30:52 by mtak             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHONEBOOK_HPP
-#define PHONEBOOK_HPP
+#include "HumanB.hpp"
 
-#include "Contact.hpp"
-#include <stdexcept>
-#include <limits>
-
-class PhoneBook
+void HumanB::attack()
 {
-	private:
-	Contact contact[8];
+	std::cout << this->name << "attacks with his" << this->weapon->getType() << std::endl;
+}
 
-	public:
-	static int contactCnt;
-	static int idxController;
-	void addContact();
-	void searchContact();
-};
+HumanB::HumanB(std::string name): name(name)
+{
+	std::cout << "Constructor" << std::endl;
+}
 
-#endif
+HumanB::~HumanB()
+{
+	std::cout << "Destructor" << std::endl;
+}
+
+void HumanB::setWeapon(Weapon &weapon)
+{
+	this->weapon = &weapon;
+}

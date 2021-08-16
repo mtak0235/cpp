@@ -6,7 +6,7 @@
 /*   By: mtak <mtak@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/07 20:30:50 by mtak              #+#    #+#             */
-/*   Updated: 2021/08/10 18:16:35 by mtak             ###   ########.fr       */
+/*   Updated: 2021/08/12 17:52:33 by mtak             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,20 +65,20 @@ bool Contact::setInformation()
 		idx = PhoneBook::idxController - 9;
 	if (PhoneBook::idxController == 17)
 		PhoneBook::idxController = 0;
-		for (int i = FirstName; i < Secret; i++)
+	for (int i = FirstName; i < Secret; i++)
+	{
+		std::cout << infoName[i] + " : ";
+		std::getline(std::cin, info[i]);	
+	}
+	for (int i = FirstName, empty = 0; i < Secret; i++)
+	{
+		if (info[i] ==  "")
+			empty++;
+		if (empty == Secret)
 		{
-			std::cout << infoName[i] + " : ";
-			std::getline(std::cin, info[i]);	
+			std::cout << "아무것도 기입하지 않으셨습니다." << std::endl;
+			return false;
 		}
-		for (int i = FirstName, empty = 0; i < Secret; i++)
-		{
-			if (info[i] ==  "")
-				empty++;
-			if (empty == Secret)
-			{
-				std::cout << "아무것도 기입하지 않으셨습니다." << std::endl;
-				return false;
-			}
-		}
+	}
 	return true;
 };

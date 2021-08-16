@@ -1,32 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PhoneBook.hpp                                      :+:      :+:    :+:   */
+/*   ZombieHorde.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mtak <mtak@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/07 20:30:25 by mtak              #+#    #+#             */
-/*   Updated: 2021/08/12 17:56:32 by mtak             ###   ########.fr       */
+/*   Created: 2021/08/12 18:29:37 by mtak              #+#    #+#             */
+/*   Updated: 2021/08/12 18:39:03 by mtak             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHONEBOOK_HPP
-#define PHONEBOOK_HPP
+#include "Zombie.hpp"
 
-#include "Contact.hpp"
-#include <stdexcept>
-#include <limits>
-
-class PhoneBook
+Zombie* zombieHorde(int nbr, std::string name)
 {
-	private:
-	Contact contact[8];
-
-	public:
-	static int contactCnt;
-	static int idxController;
-	void addContact();
-	void searchContact();
-};
-
-#endif
+	Zombie *z = new Zombie[nbr];
+	for (int i = 0; i < nbr; i++) {
+		z[i].setZombie(name + std::to_string(i));
+		z[i].announce();
+	}
+	return z;
+}

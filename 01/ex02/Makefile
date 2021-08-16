@@ -5,24 +5,25 @@
 #                                                     +:+ +:+         +:+      #
 #    By: mtak <mtak@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2021/08/04 11:43:38 by mtak              #+#    #+#              #
-#    Updated: 2021/08/12 17:50:25 by mtak             ###   ########.fr        #
+#    Created: 2021/08/12 21:43:55 by mtak              #+#    #+#              #
+#    Updated: 2021/08/12 21:44:14 by mtak             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS			= megaphone.cpp
-OBJS			= $(SRCS:.cpp=.o)
+NAME = string
 
-CXX				= clang++
-RM				= rm -f
-CXXFLAGS		= -Wall -Wextra -Werror -I.
+SRCS = main.cpp\
 
-NAME			= megaphone
+OBJS = $(SRCS:.cpp=.o)
+
+CPP = clang++
+RM = rm -rf
+CPPFLAGS = -Wall -Wextra -Werror -I.
 
 all:			$(NAME)
 
 $(NAME):		$(OBJS)
-				$(CXX) $(CXXFLAGS) -o $(NAME) $(OBJS)
+				$(CPP) $(CPPFLAGS) -o $(NAME) $(OBJS)
 
 clean:
 				$(RM) $(OBJS)
@@ -32,9 +33,4 @@ fclean:			clean
 
 re:				fclean $(NAME)
 
-test:			$(NAME)
-				./megaphone "shhhhh... I think the students are asleep..."
-				./megaphone Damnit " ! " "Sorry students, I thought this thing was off."
-				./megaphone
-
-.PHONY:			all clean fclean re test
+.PHONY:			all clean fclean re

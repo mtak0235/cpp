@@ -1,32 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PhoneBook.hpp                                      :+:      :+:    :+:   */
+/*   HumanA.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mtak <mtak@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/07 20:30:25 by mtak              #+#    #+#             */
-/*   Updated: 2021/08/12 17:56:32 by mtak             ###   ########.fr       */
+/*   Created: 2021/08/12 20:29:27 by mtak              #+#    #+#             */
+/*   Updated: 2021/08/12 21:40:26 by mtak             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHONEBOOK_HPP
-#define PHONEBOOK_HPP
+#ifndef HUMAN_HPP
+#define HUMAN_HPP
 
-#include "Contact.hpp"
-#include <stdexcept>
-#include <limits>
+#include <iostream>
+#include <string>
+#include "Weapon.hpp"
 
-class PhoneBook
+class HumanA
 {
 	private:
-	Contact contact[8];
-
+		std::string name;
+		Weapon &weapon;
 	public:
-	static int contactCnt;
-	static int idxController;
-	void addContact();
-	void searchContact();
+		void attack();
+		HumanA(std::string name, Weapon &weapon);
+		~HumanA();
+		void setName(std::string name);
 };
 
 #endif
