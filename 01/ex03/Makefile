@@ -6,7 +6,7 @@
 #    By: mtak <mtak@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/08/12 21:31:01 by mtak              #+#    #+#              #
-#    Updated: 2021/08/12 21:43:40 by mtak             ###   ########.fr        #
+#    Updated: 2021/08/17 22:24:52 by mtak             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ OBJS = $(SRCS:.cpp=.o)
 
 CPP = clang++
 RM = rm -rf
-CPPFLAGS = -Wall -Wextra -Werror -I.
+CPPFLAGS = -Wall -Wextra -Werror -I. -std=c++98 -pedantic
 
 all:			$(NAME)
 

@@ -6,7 +6,7 @@
 #    By: mtak <mtak@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/08/04 11:43:38 by mtak              #+#    #+#              #
-#    Updated: 2021/08/12 17:50:25 by mtak             ###   ########.fr        #
+#    Updated: 2021/08/17 22:24:52 by mtak             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ OBJS			= $(SRCS:.cpp=.o)
 
 CXX				= clang++
 RM				= rm -f
-CXXFLAGS		= -Wall -Wextra -Werror -I.
+CXXFLAGS		= -Wall -Wextra -Werror -I. -std=c++98 -pedantic
 
 NAME			= megaphone
 
