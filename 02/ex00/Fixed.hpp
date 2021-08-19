@@ -1,20 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   randomChump.cpp                                    :+:      :+:    :+:   */
+/*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mtak <mtak@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/10 20:51:59 by mtak              #+#    #+#             */
-/*   Updated: 2021/08/18 11:10:06 by mtak             ###   ########.fr       */
+/*   Created: 2021/08/18 00:52:48 by mtak              #+#    #+#             */
+/*   Updated: 2021/08/18 16:19:59 by mtak             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#ifndef FIXED_HPP
+# define FIXED_HPP
 
-void randomChump(std::string name)
+#include <iostream>
+
+class Fixed
 {
-	Zombie *newZ = newZombie(name);
-	newZ->announce();
-	delete newZ;
-}
+	private:
+		int raw;
+		static const int m = 8;
+	public:
+		Fixed();
+		~Fixed();
+		Fixed(const Fixed & fixed);
+		Fixed & operator=(const Fixed &fixed);
+		int getRawBits() const;
+		void setRawBits(int const raw);
+};
+
+#endif

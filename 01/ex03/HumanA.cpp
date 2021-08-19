@@ -6,7 +6,7 @@
 /*   By: mtak <mtak@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/12 20:57:04 by mtak              #+#    #+#             */
-/*   Updated: 2021/08/12 21:42:41 by mtak             ###   ########.fr       */
+/*   Updated: 2021/08/18 11:23:36 by mtak             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void HumanA::attack()
 {
-	std::cout << this->name << "attacks with his" << this->weapon.getType() << std::endl;
+	std::cout << this->name << " attacks with his" << this->weapon.getType() << std::endl;
 }
 
 HumanA::HumanA(std::string name, Weapon &weapon):name(name), weapon(weapon)

@@ -5,20 +5,21 @@
 #                                                     +:+ +:+         +:+      #
 #    By: mtak <mtak@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2021/08/12 21:46:54 by mtak              #+#    #+#              #
-#    Updated: 2021/08/18 11:25:17 by mtak             ###   ########.fr        #
+#    Created: 2021/08/18 00:18:53 by mtak              #+#    #+#              #
+#    Updated: 2021/08/18 16:20:46 by mtak             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = replace
+SRCS = main.cpp \
+		Fixed.cpp \
 
-SRCS = main.cpp
+OBJS			= $(SRCS:.cpp=.o)
 
-OBJS = $(SRCS:.cpp=.o)
+CPP				= clang++
+RM				= rm -f
+CPPFLAGS		= -Wall -Wextra -Werror -I. -std=c++98 -pedantic
 
-CPP = clang++
-RM = rm -rf
-CPPFLAGS = -Wall -Wextra -Werror -I. -std=c++98 -pedantic -std=c++98 -pedantic
+NAME			= a.out
 
 all:			$(NAME)
 
@@ -29,7 +30,7 @@ clean:
 				$(RM) $(OBJS)
 
 fclean:			clean
-				$(RM) $(NAME) *.replace
+				$(RM) $(NAME)
 
 re:				fclean $(NAME)
 

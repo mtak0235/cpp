@@ -1,20 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   randomChump.cpp                                    :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mtak <mtak@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/10 20:51:59 by mtak              #+#    #+#             */
-/*   Updated: 2021/08/18 11:10:06 by mtak             ###   ########.fr       */
+/*   Created: 2021/08/18 00:20:42 by mtak              #+#    #+#             */
+/*   Updated: 2021/08/18 16:20:03 by mtak             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include "Fixed.hpp"
 
-void randomChump(std::string name)
+int main(void)
 {
-	Zombie *newZ = newZombie(name);
-	newZ->announce();
-	delete newZ;
+    Fixed a;
+    Fixed b(a);
+    Fixed c;
+
+    c = b;
+
+    std::cout << a.getRawBits() << std::endl;
+    std::cout << b.getRawBits() << std::endl;
+    std::cout << c.getRawBits() << std::endl;
+
+    return 0;
 }

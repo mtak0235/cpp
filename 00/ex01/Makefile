@@ -6,7 +6,7 @@
 #    By: mtak <mtak@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/08/07 20:31:07 by mtak              #+#    #+#              #
-#    Updated: 2021/08/17 22:24:52 by mtak             ###   ########.fr        #
+#    Updated: 2021/08/17 22:30:57 by mtak             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ SRCS = main.cpp \
 
 OBJS			= $(SRCS:.cpp=.o)
 
-CPP				= g++
+CPP				= clang++
 RM				= rm -f
 CPPFLAGS		= -Wall -Wextra -Werror -I. -std=c++98 -pedantic
 

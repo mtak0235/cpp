@@ -1,32 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.hpp                                         :+:      :+:    :+:   */
+/*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mtak <mtak@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/12 18:11:07 by mtak              #+#    #+#             */
-/*   Updated: 2021/08/18 11:11:37 by mtak             ###   ########.fr       */
+/*   Created: 2021/08/18 16:28:22 by mtak              #+#    #+#             */
+/*   Updated: 2021/08/18 20:48:07 by mtak             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ZOMBIE_HPP
-#define ZOMBIE_HPP
+#ifndef FIXED_HPP
+# define FIXED_HPP
 
+#include <cmath>
 #include <iostream>
-#include <string>
 
-class Zombie
+class Fixed
 {
 	private:
-		std::string name;
+		int fixedValue;
+		static int const fractionalBits = 8; 
+
 	public:
-		~Zombie();
-		Zombie();
-		void setZombie(std::string name);
-		void announce();
+		Fixed();
+		Fixed(const int initValue);
+		Fixed(const float initValue);
+		~Fixed();
+		Fixed(const Fixed& fixed);
+		Fixed &operator=(const Fixed & fixed);
+		float toFloat() const;
+		int toInt() const;
+		int getRawBits() const;
 };
 
-Zombie* zombieHorde(int nbr, std::string name);
+std::ostream& operator<<(std::ostream& out, const Fixed& src);
 
 #endif
