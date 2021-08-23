@@ -6,7 +6,7 @@
 /*   By: mtak <mtak@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/18 16:30:13 by mtak              #+#    #+#             */
-/*   Updated: 2021/08/18 20:48:29 by mtak             ###   ########.fr       */
+/*   Updated: 2021/08/19 23:10:30 by mtak             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int main( void ) {
 	Fixed a;
-	Fixed const b( 10 );
+	Fixed const b( 10.0f );
 	Fixed const c( 42.42f );
 	Fixed const d( b );
 	a = Fixed( 1234.4321f );

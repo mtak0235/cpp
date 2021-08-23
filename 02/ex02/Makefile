@@ -6,7 +6,7 @@
 #    By: mtak <mtak@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/08/18 00:18:53 by mtak              #+#    #+#              #
-#    Updated: 2021/08/18 00:19:23 by mtak             ###   ########.fr        #
+#    Updated: 2021/08/23 13:31:17 by mtak             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ CPP				= clang++
 RM				= rm -f
 CPPFLAGS		= -Wall -Wextra -Werror -I. -std=c++98 -pedantic
 
-NAME			= phonebook
+NAME			= a.out
 
 all:			$(NAME)
 

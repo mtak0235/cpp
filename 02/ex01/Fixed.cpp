@@ -6,7 +6,7 @@
 /*   By: mtak <mtak@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/18 19:12:51 by mtak              #+#    #+#             */
-/*   Updated: 2021/08/18 21:18:18 by mtak             ###   ########.fr       */
+/*   Updated: 2021/08/23 14:09:45 by mtak             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,13 +56,11 @@ std::ostream &operator<<(std::ostream & out, const Fixed& value)
 
 int Fixed::getRawBits() const
 {
-	std::cout << "getRawBits member function called" << std::endl;
 	return fixedValue;
 }
 
 float Fixed::toFloat(void) const
 {
-	std::cout << "toFloat member function called" << std::endl;
 	return (this->fixedValue / (float)(1 << fractionalBits));
 }
 
