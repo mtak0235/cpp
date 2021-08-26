@@ -6,7 +6,7 @@
 /*   By: mtak <mtak@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/20 00:17:04 by mtak              #+#    #+#             */
-/*   Updated: 2021/08/23 13:30:52 by mtak             ###   ########.fr       */
+/*   Updated: 2021/08/23 16:08:28 by mtak             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -144,6 +144,7 @@ Fixed Fixed::operator++(int dummy)
 	(void)dummy;
 	return (tmp);
 }
+
 Fixed Fixed::operator--(int dummy)
 {
 	Fixed	tmp(*this);

@@ -1,28 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   ClapTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mtak <mtak@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/18 00:20:42 by mtak              #+#    #+#             */
-/*   Updated: 2021/08/23 15:50:09 by mtak             ###   ########.fr       */
+/*   Created: 2021/08/23 17:20:30 by mtak              #+#    #+#             */
+/*   Updated: 2021/08/23 17:25:07 by mtak             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Fixed.hpp"
+#ifndef CLAPTRAP_HPP
+# define CLAPTRAP_HPP
 
-int main(void)
+#include <iostream>
+#include <string>
+
+class ClapTrap
 {
-    Fixed a;
-    Fixed b(a);
-    Fixed c;
+	private:
+		std::string name;
+		int hitPoints;
+		int energyPoints;
+		int attackDamage;
+	public:
+		void attack(std::string const &target);
+		void takeDamage(unsigned int amount);
+		void beRepaired(unsigned int amount);
 
-    c = b;
+};
 
-    std::cout << a.getRawBits() << std::endl;
-    std::cout << b.getRawBits() << std::endl;
-    std::cout << c.getRawBits() << std::endl;
-
-    return 0;
-}
+# endif
