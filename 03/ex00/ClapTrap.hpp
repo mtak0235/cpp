@@ -24,9 +24,14 @@ class ClapTrap
 		int energyPoints;
 		int attackDamage;
 	public:
+		bool alive;
+		ClapTrap(std::string name);
+		~ClapTrap();
 		void attack(std::string const &target);
 		void takeDamage(unsigned int amount);
 		void beRepaired(unsigned int amount);
+		std::string getName() const;
+		int getAttackDamage() const;
 
 };
 

@@ -10,3 +10,26 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "ClapTrap.hpp"
+
+int main ()
+{
+	ClapTrap mtak("mtak");
+	ClapTrap zio("zio");
+	ClapTrap *ptr;
+	while (mtak.alive && zio.alive)
+	{
+		mtak.attack(zio.getName());
+		zio.takeDamage(mtak.getAttackDamage());
+		if (!zio.alive)
+			break;
+		zio.beRepaired(3);
+		zio.attack(mtak.getName());
+		mtak.takeDamage(zio.getAttackDamage());
+		if (!mtak.alive)
+			break;
+		mtak.beRepaired(4);
+	}
+	ptr = (zio.alive) ? &zio : &mtak;
+	std::cout << "\033[36m[" << ptr->getName() << "] WON! \033[37m" << std::endl;
+}

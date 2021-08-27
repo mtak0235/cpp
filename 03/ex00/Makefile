@@ -15,7 +15,7 @@ SRCS = main.cpp \
 
 OBJS			= $(SRCS:.cpp=.o)
 
-CPP				= clang++
+CPP				= g++#clang++
 RM				= rm -f
 CPPFLAGS		= -Wall -Wextra -Werror -I. -std=c++98 -pedantic
 
