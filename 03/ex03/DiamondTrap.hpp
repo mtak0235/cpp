@@ -1,26 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   FragTrap.hpp                                       :+:      :+:    :+:   */
+/*   DiamondTrap.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mtak <mtak@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/28 02:17:23 by mtak              #+#    #+#             */
-/*   Updated: 2021/08/28 02:32:17 by mtak             ###   ########.fr       */
+/*   Created: 2021/08/28 02:40:27 by mtak              #+#    #+#             */
+/*   Updated: 2021/08/28 15:07:18 by mtak             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FLAGTRAP_HPP
-# define FLAGTRAP_HPP
+#ifndef DIAMONDTRAP_HPP
+# define DIAMONDTRAP_HPP
 
-#include "ClapTrap.hpp"
+#include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 
-class FragTrap : public ClapTrap
-{
+class DiamondTrap : public FragTrap, public ScavTrap {
+
 	public:
-		FragTrap(std::string name);
-		~FragTrap();
-		void highFivesGuys();
+		DiamondTrap(std::string name);
+		DiamondTrap(const DiamondTrap &ref);
+		virtual ~DiamondTrap(void);
+		void				attack(std::string const & target);
+		void				whoAmI(void);
+
+	private:
+		std::string			name;
+
 };
 
 #endif

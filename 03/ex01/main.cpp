@@ -3,10 +3,34 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mtak <mtak@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: doolee <doolee@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/27 23:26:02 by mtak              #+#    #+#             */
-/*   Updated: 2021/08/27 23:26:04 by mtak             ###   ########.fr       */
+/*   Created: 2021/08/27 23:26:02 by doolee              #+#    #+#             */
+/*   Updated: 2021/08/28 01:07:45 by doolee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "ScavTrap.hpp"
+
+int main()
+{
+	ScavTrap doolee("doolee");
+	ScavTrap doune("doune");
+
+	ClapTrap *ptr;
+	while (doolee.alive && doune.alive)
+	{
+		doolee.attack(doune.getName());
+		doune.takeDamage(doolee.getAttackDamage());
+		if (!doune.alive)
+			break;
+		doune.beRepaired(3);
+		doune.ClapTrap::attack(doolee.getName());
+		doolee.takeDamage(doune.getAttackDamage());
+		if (!doolee.alive)
+			break;
+		doolee.beRepaired(4);
+	}
+	ptr = (doune.alive) ? &doune : &doolee;
+	std::cout << "\033[36m[" << ptr->getName() << "] WON! \033[37m" << std::endl;
+}

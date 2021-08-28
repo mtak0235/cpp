@@ -6,7 +6,7 @@
 /*   By: mtak <mtak@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/27 23:25:52 by mtak              #+#    #+#             */
-/*   Updated: 2021/08/27 23:26:37 by mtak             ###   ########.fr       */
+/*   Updated: 2021/08/28 02:12:41 by mtak             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 ClapTrap::ClapTrap(std::string name) : name(name)
 {
-	std::cout << "Mr." + name + "has entered" << std::endl;
+	std::cout << "[ClapTrap Constructor] Mr." + name + "has entered" << std::endl;
 	this->hitPoints = 10;//체력
 	this->energyPoints = 10;//체력 회복 포션
 	this->attackDamage = 0;//내가 가한 타격의 규모
@@ -23,13 +23,13 @@ ClapTrap::ClapTrap(std::string name) : name(name)
 
 ClapTrap::~ClapTrap()
 {
-	std::cout << "Mr." + this->name + "has left" << std::endl;
+	std::cout << "[ClapTrap Destructor] Mr." + this->name + "has left" << std::endl;
 }
 
 void ClapTrap::attack(std::string const &target)
 {
 	this->attackDamage = 5;
-	std::cout << "Mr." + this->name + " attacks " + target + " causing " << this->attackDamage << " points of damages" << std::endl;
+	std::cout << "[ClapTrap Attack] Mr." + this->name + " attacks " + target + " causing " << this->attackDamage << " points of damages" << std::endl;
 }
 
 void ClapTrap::takeDamage(unsigned int damage)

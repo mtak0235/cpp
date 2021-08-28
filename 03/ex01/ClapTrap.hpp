@@ -6,7 +6,7 @@
 /*   By: mtak <mtak@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/27 23:25:56 by mtak              #+#    #+#             */
-/*   Updated: 2021/08/27 23:26:48 by mtak             ###   ########.fr       */
+/*   Updated: 2021/08/28 00:56:49 by mtak             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 
 class ClapTrap
 {
-	private:
+	protected:
 		std::string name;
 		int hitPoints;
 		int energyPoints;
@@ -26,8 +26,8 @@ class ClapTrap
 	public:
 		bool alive;
 		ClapTrap(std::string name);
-		~ClapTrap();
-		void attack(std::string const &target);
+		virtual ~ClapTrap();
+		virtual void attack(std::string const &target);
 		void takeDamage(unsigned int amount);
 		void beRepaired(unsigned int amount);
 		std::string getName() const;
