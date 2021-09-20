@@ -1,31 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Cure.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mtak <mtak@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/20 01:11:12 by mtak              #+#    #+#             */
-/*   Updated: 2021/09/20 01:18:29 by mtak             ###   ########.fr       */
+/*   Created: 2021/09/20 01:34:47 by mtak              #+#    #+#             */
+/*   Updated: 2021/09/20 13:09:37 by mtak             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
-#include "Dog.hpp"
-#include "Cat.hpp"
+#ifndef CURE_HPP
+#define CURE_HPP
 
-int main()
+#include <string>
+#include "AMateria.hpp"
+#include <iostream>
+
+class ICharacter;
+
+class Cure : public AMateria
 {
-		const Animal* dog = new Dog();
-		const Animal* cat = new Cat();
+	public:
+		Cure();
+		~Cure();
+		Cure(Cure const &other);
+		virtual AMateria *clone() const;
+		virtual void use(ICharacter &target);
+};
 
-		std::cout << dog->getType() << " " << std::endl;
-		std::cout << cat->getType() << " " << std::endl;
-
-		cat->makeSound();
-		dog->makeSound();
-
-		delete cat;
-		delete dog;
-	return 0;
-}
+#endif

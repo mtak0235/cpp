@@ -29,8 +29,6 @@ int main()
 			phonebook.addContact();
 		else if (cmd == "SEARCH")
 			phonebook.searchContact();
-		//std::cin.clear();
-		// std::cin.ignore(5, '\n');
 	}
 	return (0);
 }

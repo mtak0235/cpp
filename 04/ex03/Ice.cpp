@@ -1,31 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Ice.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mtak <mtak@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/20 01:11:12 by mtak              #+#    #+#             */
-/*   Updated: 2021/09/20 01:18:29 by mtak             ###   ########.fr       */
+/*   Created: 2021/09/20 01:33:04 by mtak              #+#    #+#             */
+/*   Updated: 2021/09/20 13:11:38 by mtak             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
-#include "Dog.hpp"
-#include "Cat.hpp"
+#include "Ice.hpp"
 
-int main()
+Ice::Ice() :AMateria("ice")
 {
-		const Animal* dog = new Dog();
-		const Animal* cat = new Cat();
+}
 
-		std::cout << dog->getType() << " " << std::endl;
-		std::cout << cat->getType() << " " << std::endl;
+Ice::~Ice()
+{
+}
 
-		cat->makeSound();
-		dog->makeSound();
+Ice::Ice(Ice const &other) :AMateria(other.type)
+{
+	*this = other;
+}
 
-		delete cat;
-		delete dog;
-	return 0;
+AMateria *Ice::clone() const
+{
+	AMateria *a = new Ice;
+	return a;
+}
+
+void Ice::use(ICharacter &target)
+{
+	std::cout << "* shoots an ice bolt at " << target.getName() << " *" << std::endl;
 }

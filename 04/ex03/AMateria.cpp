@@ -1,31 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   AMateria.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mtak <mtak@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/20 01:11:12 by mtak              #+#    #+#             */
-/*   Updated: 2021/09/20 01:18:29 by mtak             ###   ########.fr       */
+/*   Created: 2021/09/20 01:29:26 by mtak              #+#    #+#             */
+/*   Updated: 2021/09/20 12:21:07 by mtak             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
-#include "Dog.hpp"
-#include "Cat.hpp"
+#include "AMateria.hpp"
 
-int main()
+AMateria::AMateria() : type("")
 {
-		const Animal* dog = new Dog();
-		const Animal* cat = new Cat();
+}
 
-		std::cout << dog->getType() << " " << std::endl;
-		std::cout << cat->getType() << " " << std::endl;
+AMateria::~AMateria()
+{
+}
 
-		cat->makeSound();
-		dog->makeSound();
+AMateria::AMateria(std::string const &type)
+{
+	this->type = type;
+}
 
-		delete cat;
-		delete dog;
-	return 0;
+std::string const &AMateria::getType() const
+{
+	return type;
+}
+
+void AMateria::use(ICharacter &target)
+{
+	(void)target;
 }

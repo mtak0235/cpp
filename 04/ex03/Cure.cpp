@@ -1,31 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Cure.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mtak <mtak@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/20 01:11:12 by mtak              #+#    #+#             */
-/*   Updated: 2021/09/20 01:18:29 by mtak             ###   ########.fr       */
+/*   Created: 2021/09/20 01:34:32 by mtak              #+#    #+#             */
+/*   Updated: 2021/09/20 13:13:37 by mtak             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
-#include "Dog.hpp"
-#include "Cat.hpp"
+#include "Cure.hpp"
 
-int main()
+
+Cure::Cure() : AMateria("cure")
 {
-		const Animal* dog = new Dog();
-		const Animal* cat = new Cat();
+}
 
-		std::cout << dog->getType() << " " << std::endl;
-		std::cout << cat->getType() << " " << std::endl;
+Cure::~Cure()
+{
+}
 
-		cat->makeSound();
-		dog->makeSound();
+Cure::Cure(Cure const &other) :AMateria(other.type)
+{
+	*this = other;
+}
 
-		delete cat;
-		delete dog;
-	return 0;
+AMateria *Cure::clone() const
+{
+	AMateria *a = new Cure;
+	return a;
+}
+
+void Cure::use(ICharacter &target)
+{
+	std::cout << "* heals " << target.getName() << "'s wounds *" << std::endl;
 }

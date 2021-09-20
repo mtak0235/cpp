@@ -1,31 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Brain.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mtak <mtak@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/20 01:11:12 by mtak              #+#    #+#             */
-/*   Updated: 2021/09/20 01:18:29 by mtak             ###   ########.fr       */
+/*   Created: 2021/09/19 18:44:29 by mtak              #+#    #+#             */
+/*   Updated: 2021/09/20 00:50:48 by mtak             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
-#include "Dog.hpp"
-#include "Cat.hpp"
+#ifndef BRAIN_HPP
+# define BRAIN_HPP
 
-int main()
+#include <string>
+#include <cstdlib>
+
+class Brain
 {
-		const Animal* dog = new Dog();
-		const Animal* cat = new Cat();
+	private:
+		std::string ideas[100];
+	public:
+		Brain(){ideas[0] = (rand() % 26) + 97;};
+		std::string const &getIdea(){return ideas[0];};
+};
 
-		std::cout << dog->getType() << " " << std::endl;
-		std::cout << cat->getType() << " " << std::endl;
-
-		cat->makeSound();
-		dog->makeSound();
-
-		delete cat;
-		delete dog;
-	return 0;
-}
+#endif

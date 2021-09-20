@@ -1,31 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   IMateriaSource.hpp                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mtak <mtak@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/20 01:11:12 by mtak              #+#    #+#             */
-/*   Updated: 2021/09/20 01:18:29 by mtak             ###   ########.fr       */
+/*   Created: 2021/09/20 01:25:03 by mtak              #+#    #+#             */
+/*   Updated: 2021/09/20 01:26:50 by mtak             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
-#include "Dog.hpp"
-#include "Cat.hpp"
+#ifndef IMATERIASOURCE_HPP
+#define IMATERIASOURCE_HPP
 
-int main()
+#include <iostream>
+#include "AMateria.hpp"
+
+class IMateriaSource
 {
-		const Animal* dog = new Dog();
-		const Animal* cat = new Cat();
+	public:
+		virtual ~IMateriaSource() {}
+		virtual void learnMateria(AMateria *) = 0;
+		virtual AMateria *createMateria(std::string const &type) = 0;
+};
 
-		std::cout << dog->getType() << " " << std::endl;
-		std::cout << cat->getType() << " " << std::endl;
-
-		cat->makeSound();
-		dog->makeSound();
-
-		delete cat;
-		delete dog;
-	return 0;
-}
+#endif

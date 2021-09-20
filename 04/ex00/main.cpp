@@ -6,7 +6,7 @@
 /*   By: mtak <mtak@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/28 15:43:56 by mtak              #+#    #+#             */
-/*   Updated: 2021/08/28 19:45:32 by mtak             ###   ########.fr       */
+/*   Updated: 2021/09/19 18:14:08 by mtak             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,40 +18,53 @@ class Animal
 	protected:
 		std::string type;
 	public:
-		Animal(){ std::cout << "[Animal Constructor] " << std::endl; }
-		virtual ~Animal(){ std::cout << "[Animal Destructor] " << std::endl; }
-		std::string getType(){ return type; }
-		virtual void makeSound() = 0;
+		Animal(){ std::cout << "\033[31m[Animal Constructor]\033[37m" << std::endl; }
+		virtual ~Animal(){ std::cout << "\033[31m[Animal Destructor]\033[37m" << std::endl; }
+		std::string getType() const { return type; }
+		virtual void makeSound() const { std::cout << "\033[31m[동물소리]\033[37m" << std::endl;};
 };
 
 class Dog: public Animal
 {
 	public:
 		Dog() {
-			std::cout << "[Dog Constructor] " << std::endl;
-			this->Animal::type = "Dog";
+			std::cout << "\033[32m[Dog Constructor]\033[37m" << std::endl;
+			this->type = "Dog";
 		}
-		~Dog(){std::cout << "[Dog Destructor]" << std::endl;}
-		void makeSound(){std::cout << "[왕왕]" << std::endl;}
+		~Dog(){std::cout << "\033[32m[Dog Destructor]\033[37m" << std::endl;}
+		void makeSound() const {std::cout << "\033[32m[왕왕]\033[37m" << std::endl;}
 };
 
 class Cat: public Animal
 {
-	Cat() {
-		std::cout << "[Cat Constructor] " << std::endl;
-		this->Animal::type = "Cat";
-	}
-	~Cat(){std::cout << "[Cat Destructor]" << std::endl;}
-	void makeSound(){std::cout << "[미야옹]" << std::endl;}
+	public:
+		Cat() {
+			std::cout << "\033[33m[Cat Constructor]\033[37m" << std::endl;
+			this->type = "Cat";
+		}
+		~Cat(){std::cout << "\033[33m[Cat Destructor]\033[37m" << std::endl;}
+		void makeSound() const {std::cout << "\033[33m[야옹]\033[37m" << std::endl;}
 };
 
 class WrongAnimal
 {
-	
-}
+	protected:
+		std::string type;
+	public:
+		WrongAnimal(){ std::cout << "\033[35m[WrongAnimal Constructor]\033[37m" << std::endl; }
+		virtual ~WrongAnimal(){ std::cout << "\033[35m[WrongAnimal Destructor]\033[37m" << std::endl; }
+		std::string getType() const { return type; }
+		void makeSound() const { std::cout << "\033[35m[동물소리]\033[37m" << std::endl;};
+};
+
+class WrongCat : public WrongAnimal
+{
+	public:
+		void makeSound() const {std::cout << "\033[36m[wrong 야옹]\033[37m" << std::endl;}
+};
+
 int main()
 {
-	{
 		const Animal* meta = new Animal();
 		const Animal* dog = new Dog();
 		const Animal* cat = new Cat();
@@ -69,8 +82,5 @@ int main()
 		delete cat;
 		delete dog;
 		delete wrong;
-	}
-	system("leaks animal");
-
 	return 0;
 }

@@ -1,31 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   ICharacter.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mtak <mtak@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/20 01:11:12 by mtak              #+#    #+#             */
-/*   Updated: 2021/09/20 01:18:29 by mtak             ###   ########.fr       */
+/*   Created: 2021/09/20 01:26:52 by mtak              #+#    #+#             */
+/*   Updated: 2021/09/20 13:07:32 by mtak             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
-#include "Dog.hpp"
-#include "Cat.hpp"
+#ifndef ICHARACTER_HPP
+#define ICHARACTER_HPP
 
-int main()
+#include <string>
+#include "AMateria.hpp"
+
+class AMateria;
+
+class ICharacter
 {
-		const Animal* dog = new Dog();
-		const Animal* cat = new Cat();
+	public:
+		virtual ~ICharacter() {}
+		virtual std::string const &getName() const = 0;
+		virtual void equip(AMateria *m) = 0;
+		virtual void unequip(int idx) = 0;
+		virtual void use(int idx, ICharacter &target) = 0;
+};
 
-		std::cout << dog->getType() << " " << std::endl;
-		std::cout << cat->getType() << " " << std::endl;
-
-		cat->makeSound();
-		dog->makeSound();
-
-		delete cat;
-		delete dog;
-	return 0;
-}
+#endif
