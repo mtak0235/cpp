@@ -6,7 +6,7 @@
 /*   By: mtak <mtak@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/20 01:34:32 by mtak              #+#    #+#             */
-/*   Updated: 2021/09/20 13:13:37 by mtak             ###   ########.fr       */
+/*   Updated: 2021/09/20 13:37:39 by mtak             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,3 +36,4 @@ void Cure::use(ICharacter &target)
 {
 	std::cout << "* heals " << target.getName() << "'s wounds *" << std::endl;
 }
+

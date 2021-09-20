@@ -6,7 +6,7 @@
 /*   By: mtak <mtak@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/19 18:16:19 by mtak              #+#    #+#             */
-/*   Updated: 2021/09/20 00:51:01 by mtak             ###   ########.fr       */
+/*   Updated: 2021/09/20 13:34:59 by mtak             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,3 +48,4 @@ int main()
     std::cout << "dog brain idea address: " << &(dog.getBrain()->getIdea()) << std::endl;
     std::cout << "dog2 brain idea address: " << &(dog2.getBrain()->getIdea()) << "\033[37m" << std::endl;
 }
+
