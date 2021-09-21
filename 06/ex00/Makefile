@@ -5,14 +5,12 @@
 #                                                     +:+ +:+         +:+      #
 #    By: mtak <mtak@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2021/09/20 16:36:14 by mtak              #+#    #+#              #
-#    Updated: 2021/09/21 18:44:04 by mtak             ###   ########.fr        #
+#    Created: 2021/09/21 18:39:29 by mtak              #+#    #+#              #
+#    Updated: 2021/09/21 18:42:42 by mtak             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS = main.cpp \
-		Bureaucrat.cpp \
-		Form.cpp
+SRCS = main.cpp
 
 OBJS			= $(SRCS:.cpp=.o)
 
