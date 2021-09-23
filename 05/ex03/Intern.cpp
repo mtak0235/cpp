@@ -6,15 +6,15 @@
 /*   By: mtak <mtak@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/21 21:33:36 by mtak              #+#    #+#             */
-/*   Updated: 2021/09/21 21:34:17 by mtak             ###   ########.fr       */
+/*   Updated: 2021/09/22 11:16:43 by mtak             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Intern.hpp"
 
-Form *makeRobotmyForm(std::string const &target)
+Form *makeRobotomyForm(std::string const &target)
 {
-	return (new RobotmyRequestForm(target));
+	return (new RobotomyRequestForm(target));
 }
 
 Form *makePresidentialForm(std::string const &target)
@@ -29,12 +29,12 @@ Form *makeShrubberyForm(std::string const &target)
 
 Intern::Intern()
 {
-	forms[0].name = "robotmy request";
-	forms[0].fct = makeRobotmyForm;
+	forms[0].name = "robotomy request";
+	forms[0].func = makeRobotomyForm;
 	forms[1].name = "presidential pardon request";
-	forms[1].fct = makePresidentialForm;
+	forms[1].func = makePresidentialForm;
 	forms[2].name = "shrubbery request";
-	forms[2].fct = makeShrubberyForm;
+	forms[2].func = makeShrubberyForm;
 }
 
 Intern::Intern(Intern const &src)
@@ -42,9 +42,15 @@ Intern::Intern(Intern const &src)
 	*this = src;
 }
 
-Intern &Intern::operator=(Intern const &rhs)
+Intern &Intern::operator=(Intern const &other)
 {
-	std::cout << "Intern Assignation operator called" << std::endl;
+	forms[0].name = "robotomy request";
+	forms[0].func = makeRobotomyForm;
+	forms[1].name = "presidential pardon request";
+	forms[1].func = makePresidentialForm;
+	forms[2].name = "shrubbery request";
+	forms[2].func = makeShrubberyForm;
+	(void)other;
 	return *this;
 }
 
@@ -59,7 +65,7 @@ Form *Intern::makeForm(std::string name, std::string target)
 		if(name == this->forms[i].name)
 		{
 			std::cout << "Intern creates " << name << std::endl;
-			return (this->forms[i].fct(target));
+			return (this->forms[i].func(target));
 		}
 	}
 	std::cout << "Intern doesn't know the form " << name << std::endl;

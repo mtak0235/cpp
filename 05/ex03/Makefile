@@ -5,17 +5,18 @@
 #                                                     +:+ +:+         +:+      #
 #    By: mtak <mtak@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2021/09/19 18:15:35 by mtak              #+#    #+#              #
-#    Updated: 2021/09/20 13:16:20 by mtak             ###   ########.fr        #
+#    Created: 2021/09/20 16:36:14 by mtak              #+#    #+#              #
+#    Updated: 2021/09/22 11:03:43 by mtak             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRCS = main.cpp \
-		AMateria.cpp \
-		Character.cpp \
-		Cure.cpp \
-		Ice.cpp \
-		MateriaSource.cpp 
+		Bureaucrat.cpp \
+		Form.cpp \
+		PresidentialPardonForm.cpp\
+		ShrubberyCreationForm.cpp\
+		RobotomyRequestForm.cpp \
+		Intern.cpp \
 
 OBJS			= $(SRCS:.cpp=.o)
 
@@ -31,7 +32,7 @@ $(NAME):		$(OBJS)
 				$(CPP) $(CPPFLAGS) -o $(NAME) $(OBJS)
 
 clean:
-				$(RM) $(OBJS)
+				$(RM) $(OBJS) *shrubbery
 
 fclean:			clean
 				$(RM) $(NAME)

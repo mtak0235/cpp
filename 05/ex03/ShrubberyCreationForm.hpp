@@ -1,31 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   ShrubberyCreationForm.hpp                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mtak <mtak@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/19 18:39:13 by mtak              #+#    #+#             */
-/*   Updated: 2021/09/19 18:46:09 by mtak             ###   ########.fr       */
+/*   Created: 2021/09/21 05:03:18 by mtak              #+#    #+#             */
+/*   Updated: 2021/09/21 17:04:58 by mtak             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_HPP
-#define ANIMAL_HPP
+#ifndef SHRUBBERYCREATIONFORM_HPP
+#define SHRUBBERYCREATIONFORM_HPP
 
-#include <iostream>
-#include <iostream>
+#include "Form.hpp"
+#include <fstream>
 #include <string>
 
-class Animal
+class ShrubberyCreationForm : public Form
 {
-	protected:
-		std::string type;
 	public:
-		Animal(){ std::cout << "\033[31m[Animal Constructor]\033[37m" << std::endl; }
-		virtual ~Animal(){ std::cout << "\033[31m[Animal Destructor]\033[37m" << std::endl; }
-		std::string getType() const { return type; }
-		virtual void makeSound() const = 0;
+		ShrubberyCreationForm(std::string target);
+		~ShrubberyCreationForm(void);
+		ShrubberyCreationForm(ShrubberyCreationForm const &src);
+		ShrubberyCreationForm &operator=(ShrubberyCreationForm const &other);
+		virtual bool execute(Bureaucrat const &executor) const;
+	private:
+		std::string target;
 };
 
 #endif

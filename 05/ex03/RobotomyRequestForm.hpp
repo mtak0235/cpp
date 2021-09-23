@@ -1,28 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Brain.hpp                                          :+:      :+:    :+:   */
+/*   RobotomyRequestForm.hpp                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mtak <mtak@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/19 18:44:29 by mtak              #+#    #+#             */
-/*   Updated: 2021/09/20 00:50:48 by mtak             ###   ########.fr       */
+/*   Created: 2021/09/21 05:04:25 by mtak              #+#    #+#             */
+/*   Updated: 2021/09/21 17:01:53 by mtak             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BRAIN_HPP
-# define BRAIN_HPP
+#ifndef RobotomyREQUESTFORM_HPP
+#define RobotomyREQUESTFORM_HPP
 
-#include <string>
+#include "Form.hpp"
 #include <cstdlib>
 
-class Brain
+class RobotomyRequestForm : public Form
 {
-	private:
-		std::string ideas[100];
 	public:
-		Brain(){ideas[0] = (rand() % 26) + 97;};
-		std::string const &getIdea(){return ideas[0];};
+		RobotomyRequestForm(std::string target);
+		~RobotomyRequestForm(void);
+		RobotomyRequestForm &operator=(RobotomyRequestForm const &other);
+		RobotomyRequestForm(RobotomyRequestForm const &src);
+		virtual bool execute(Bureaucrat const &executor) const;
+	private:
+		std::string target;
 };
 
 #endif
