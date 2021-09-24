@@ -5,33 +5,39 @@
 #                                                     +:+ +:+         +:+      #
 #    By: mtak <mtak@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2021/09/21 18:39:29 by mtak              #+#    #+#              #
-#    Updated: 2021/09/23 16:48:03 by mtak             ###   ########.fr        #
+#    Created: 2021/09/23 16:18:07 by mtak              #+#    #+#              #
+#    Updated: 2021/09/23 16:18:19 by mtak             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS = main.cpp \
-		Value.cpp
+NAME	=	main
 
-OBJS			= $(SRCS:.cpp=.o)
+SRCS	=	main.cpp span.cpp
 
-CPP				= clang++
-RM				= rm -f
-CPPFLAGS		= -Wall -Wextra -Werror -I. -std=c++98 -pedantic
+INC		=	span.hpp
+	
+OBJS	=	$(SRCS:.cpp=.o)
 
-NAME			= convert
+CXX		=	clang++
 
-all:			$(NAME)
+CXXFLAGS=	 -Wall -Wextra -Werror -std=c++98
 
-$(NAME):		$(OBJS)
-				$(CPP) $(CPPFLAGS) -o $(NAME) $(OBJS)
+RM		=	rm -rf
 
-clean:
-				$(RM) $(OBJS)
+$(NAME)	:	$(OBJS) $(INC) 
+			$(CXX) $(CXXFLAGS) -o $(NAME) $(OBJS) -I.
 
-fclean:			clean
-				$(RM) $(NAME)
+all		:	$(NAME)
 
-re:				fclean $(NAME)
+%.o		:	%.cpp
+			$(CXX) $(CXXFLAGS) -c $< -I.
 
-.PHONY:			all clean fclean re
+clean	:	
+			$(RM) $(OBJS)
+
+fclean	:	clean
+			$(RM) $(NAME)
+
+re		:	fclean all
+
+.PHONY	:	all re clean flcean

@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Number.cpp                                         :+:      :+:    :+:   */
+/*   Value.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mtak <mtak@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,17 +10,17 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Number.hpp"
-
-void Number::convertAll(char *av)
+#include "Value.hpp"
+#include <string>
+void Value::convertAll(char *av)
 {
-	Number::toChar(av);
-	Number::toInt(av);
-	Number::toFloat(av);
-	Number::toDouble(av);
+	Value::toChar(av);
+	Value::toInt(av);
+	Value::toFloat(av);
+	Value::toDouble(av);
 }
 
-void Number:: toInt(char *av)
+void Value:: toInt(char *av)
 {
 	try
 	{
@@ -34,7 +34,7 @@ void Number:: toInt(char *av)
 			if (strlen(av) == 1 && isprint(*av))
 				std::cout << static_cast<const int>(*av) << std::endl;
 			else
-				throw "\033[35mimpossible\033[37m";
+				throw "impossible";
 		}
 		else
 			std::cout << static_cast<const int>(l) << std::endl;
@@ -44,7 +44,7 @@ void Number:: toInt(char *av)
 		std::cerr << e << std::endl;
 	}
 }
-void Number:: toChar(char *av)
+void Value:: toChar(char *av)
 {
 	try
 	{
@@ -56,12 +56,15 @@ void Number:: toChar(char *av)
 		}
 		int i;
 		i = atoi(av);
-		if ((!i && strcmp(av, "0"))||i < 0 || i > CHAR_MAX)
+		if ((!i && strcmp(av, "0"))||i < CHAR_MIN || i > CHAR_MAX)
 			throw "impossible";
 		char c = static_cast<char>(i);
 		if (isprint(c))
 		{
-			std::cout << "\033[33m'" << c << "'\033[37m"  << std::endl;
+			if (i == 32)
+				std::cout << "'" << c << "'" << std::endl;
+			else
+				std::cout << c << std::endl;
 			return;
 		}
 		throw "Non displayable";
@@ -72,7 +75,7 @@ void Number:: toChar(char *av)
 	}	
 }
 
-void Number:: toFloat(char *av)
+void Value:: toFloat(char *av)
 {
 	try
 	{
@@ -98,7 +101,7 @@ void Number:: toFloat(char *av)
 	}
 }
 
-void Number:: toDouble(char *av)
+void Value:: toDouble(char *av)
 {
 	try
 	{

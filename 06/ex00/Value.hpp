@@ -1,25 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Value.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mtak <mtak@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/22 11:50:54 by mtak              #+#    #+#             */
-/*   Updated: 2021/09/23 16:22:48 by mtak             ###   ########.fr       */
+/*   Created: 2021/09/22 11:51:48 by mtak              #+#    #+#             */
+/*   Updated: 2021/09/22 17:23:46 by mtak             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Value.hpp"
-#include <iostream>
+#ifndef VALUE_HPP
+# define VALUE_HPP
 
-int main(int ac, char **av)
+#include <string>
+#include <iostream>
+#include <cstring>
+#include <climits>
+#include <cmath>
+#include <cfloat>
+
+class Value
 {
-	if (ac != 2)
-	{
-		std::cerr << "Error arguments" << std::endl;
-		return 1;
-	}
-	Value::convertAll(av[1]);
-	return 0;
-}
+	private:
+	public:
+		Value();
+		~Value();
+		static void convertAll(char *target);
+		static void toChar(char *target);
+		static void toInt(char *target);
+		static void toFloat(char *target);
+		static void toDouble(char *target);
+};
+
+#endif

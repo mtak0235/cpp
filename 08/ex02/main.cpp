@@ -5,21 +5,43 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mtak <mtak@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/22 11:50:54 by mtak              #+#    #+#             */
-/*   Updated: 2021/09/23 16:22:48 by mtak             ###   ########.fr       */
+/*   Created: 2021/09/23 16:19:07 by mtak              #+#    #+#             */
+/*   Updated: 2021/09/23 16:19:11 by mtak             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Value.hpp"
+#include "mutantstack.hpp"
 #include <iostream>
 
-int main(int ac, char **av)
+int main()
 {
-	if (ac != 2)
-	{
-		std::cerr << "Error arguments" << std::endl;
-		return 1;
-	}
-	Value::convertAll(av[1]);
+	MutantStack<int> mstack;
+	
+	mstack.push(5);
+	mstack.push(17);
+	
+	std::cout << mstack.top() << std::endl;
+	
+	mstack.pop();
+	
+	std::cout << mstack.size() << std::endl;
+	
+	mstack.push(3);
+	mstack.push(5);
+	mstack.push(737);
+	//[...]
+	mstack.push(0);
+	
+	// MutantStack<int>::iterator it = mstack.begin();
+	// MutantStack<int>::iterator ite = mstack.end();
+	
+	// ++it;
+	// --it;
+	// while (it != ite)
+	// {
+	// 	std::cout << *it << std::endl;
+	// 	++it;
+	// }
+	// std::stack<int> s(mstack);
 	return 0;
 }

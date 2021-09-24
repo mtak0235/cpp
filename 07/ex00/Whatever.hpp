@@ -1,25 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Whatever.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mtak <mtak@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/22 11:50:54 by mtak              #+#    #+#             */
-/*   Updated: 2021/09/23 16:22:48 by mtak             ###   ########.fr       */
+/*   Created: 2021/09/23 15:28:38 by mtak              #+#    #+#             */
+/*   Updated: 2021/09/23 15:28:41 by mtak             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Value.hpp"
-#include <iostream>
+#ifndef WHATEVER_H
+#define WHATEVER_H
 
-int main(int ac, char **av)
+template< typename T >
+void swap(T &a, T &b)
 {
-	if (ac != 2)
-	{
-		std::cerr << "Error arguments" << std::endl;
-		return 1;
-	}
-	Value::convertAll(av[1]);
-	return 0;
+	T c = a;
+	a = b;
+	b = c;
 }
+
+template< typename T >
+T const max(T const &a, T const &b)
+{
+	if (a >= b)
+		return a;
+	return b;
+}
+
+template< typename T >
+T const min(T const &a, T const &b)
+{
+	if (a <= b)
+		return a;
+	return b;
+}
+
+#endif
