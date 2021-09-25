@@ -32,7 +32,7 @@ void Value:: toInt(char *av)
 		if (!l && strcmp(av, "0"))
 		{
 			if (strlen(av) == 1 && isprint(*av))
-				std::cout << static_cast<const int>(*av) << std::endl;
+				std::cout << (static_cast<const int>)(*av) << std::endl;
 			else
 				throw "impossible";
 		}

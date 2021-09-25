@@ -6,52 +6,26 @@
 /*   By: mtak <mtak@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/23 15:29:07 by mtak              #+#    #+#             */
-/*   Updated: 2021/09/23 15:29:11 by mtak             ###   ########.fr       */
+/*   Updated: 2021/09/24 17:06:48 by mtak             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "iter.hpp"
 #define SIZE_ARR 5
 
-void print_c(char const & c)
+void print_c(char const &c)
 {
-	std::cout << "printing char:\t" << c << std::endl;
-}
-
-void print_i(int const & i)
-{
-	std::cout << "printing int:\t" << i << std::endl;
-}
-
-void print_f(float const & f)
-{
-	std::cout << "printing float:\t" << f << std::endl;
+	std::cout << "print char:\t" << c << std::endl;
 }
 
 int main(void)
 {
-	char * arr_c = createArray('a', SIZE_ARR);
-	iter(arr_c, SIZE_ARR, print_c);
-	std::cout << std::endl;
-	
-	int * arr_i = createArray(0, SIZE_ARR);
-	iter(arr_i, SIZE_ARR, print_i);
-	std::cout << std::endl;
-	
-	float * arr_f = createArray(0.5f, SIZE_ARR);
-	iter(arr_f, SIZE_ARR, print_f);
-	std::cout << std::endl;
-	
-	std::cout << "--------" << std::endl;
-	
-	iter(arr_c, SIZE_ARR, print);
-	std::cout << std::endl;
-	iter(arr_i, SIZE_ARR, print);
-	std::cout << std::endl;
-	iter(arr_f, SIZE_ARR, print);
-	
-	delete arr_c;
-	delete arr_i;
-	delete arr_f;
+	char *arr = new char[4];
+	char startChar = 'a';
+	for (int i = 0; i < 4; i++)
+		arr[i] = startChar++;
+	iter(arr, 4, print);
+	iter(arr, 4, print_c);
+	delete [] arr;
 	return 0;
 }

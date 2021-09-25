@@ -6,14 +6,14 @@
 /*   By: mtak <mtak@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/23 15:28:38 by mtak              #+#    #+#             */
-/*   Updated: 2021/09/23 15:28:41 by mtak             ###   ########.fr       */
+/*   Updated: 2021/09/24 16:52:35 by mtak             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef WHATEVER_H
 #define WHATEVER_H
 
-template< typename T >
+template< class T >
 void swap(T &a, T &b)
 {
 	T c = a;
@@ -22,7 +22,7 @@ void swap(T &a, T &b)
 }
 
 template< typename T >
-T const max(T const &a, T const &b)
+T max(T &a, T &b)
 {
 	if (a >= b)
 		return a;
@@ -30,7 +30,7 @@ T const max(T const &a, T const &b)
 }
 
 template< typename T >
-T const min(T const &a, T const &b)
+T min(T &a, T &b)
 {
 	if (a <= b)
 		return a;

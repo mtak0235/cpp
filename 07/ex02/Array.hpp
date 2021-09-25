@@ -6,69 +6,72 @@
 /*   By: mtak <mtak@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/23 15:29:27 by mtak              #+#    #+#             */
-/*   Updated: 2021/09/23 15:29:39 by mtak             ###   ########.fr       */
+/*   Updated: 2021/09/25 14:18:01 by mtak             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ARRAY_H
 #define ARRAY_H
 
-template<typename T>
+#include <stdexcept>
+
+template<class T>
 class Array
 {
 	T* array;
-	unsigned int size_arr;
+	unsigned int arrLen;
 	public:
-		Array() : array(0), size_arr(0) {}
-		Array(unsigned int n) : size_arr(n)
+		Array() : array(0), arrLen(0) {}
+		Array(unsigned int n) : arrLen(n)
 		{
 			this->array = new T[n];
 			for (unsigned int i = 0; i < n; i++)
 				this->array[i] = 0;
 		}
-		Array(Array const & obj)
+		
+		Array(Array const & target)
 		{
-			if (obj.array)
+			if (target.array)
 			{
-				this->array = new T[obj.size_arr];
-				for (unsigned int i = 0; i < obj.size_arr; i++)
-					this->array[i] = obj.array[i];
+				this->array = new T[target.arrLen];
+				for (unsigned int i = 0; i < target.arrLen; i++)
+					this->array[i] = target.array[i];
 			}
 			else
 				this->array = 0;
-			this->size_arr = obj.size_arr;
+			this->arrLen = target.arrLen;
 		}
 		~Array()
 		{
 			if (this->array)
 				delete this->array;
 		}
-		Array & operator=(Array const & obj)
+		Array & operator=(Array const & target)
 		{
 			if (this->array)
 				delete this->array;
-			if (obj.array)
+			if (target.array)
 			{
-				this->array = new T[obj.size_arr];
-				for (unsigned int i = 0; i < obj.size_arr; i++)
-					this->array[i] = obj.array[i];
+				this->array = new T[target.arrLen];
+				for (unsigned int i = 0; i < target.arrLen; i++)
+					this->array[i] = target.array[i];
 			}
 			else
 				this->array = 0;
-			this->size_arr = obj.size_arr;
+			this->arrLen = target.arrLen;
 			return *this;
 		}
 		T & operator[](long int i)
 		{
 			if (!this->array)
-				throw std::invalid_argument("Empty array");
-			if (i < 0 || i >= this->size_arr)
-				throw std::invalid_argument("Error index");
+				throw std::invalid_argument("u accessed Empty array");
+			if (i < 0 || i >= this->arrLen)
+				throw std::invalid_argument("u accessed Error index");
 			return this->array[i];
 		}
 		unsigned int size() const
 		{
-			return this->size_arr;
+			return this->arrLen;
 		}
 		T* address() const
 		{
