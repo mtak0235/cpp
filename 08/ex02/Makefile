@@ -6,38 +6,32 @@
 #    By: mtak <mtak@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/23 16:19:18 by mtak              #+#    #+#              #
-#    Updated: 2021/09/23 16:19:21 by mtak             ###   ########.fr        #
+#    Updated: 2021/09/26 15:54:55 by mtak             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	=	main
+SRCS = main.cpp \
+		mutantstack.cpp
 
-SRCS	=	main.cpp  mutantstack.cpp
+OBJS			= $(SRCS:.cpp=.o)
 
-INC		=	mutantstack.hpp
-	
-OBJS	=	$(SRCS:.cpp=.o)
+CPP				= clang++
+RM				= rm -f
+CPPFLAGS		= -Wall -Wextra -Werror -I. -std=c++98 -pedantic
 
-CXX		=	clang++
+NAME			= mut
 
-CXXFLAGS=	 -Wall -Wextra -Werror -std=c++98
+all:			$(NAME)
 
-RM		=	rm -rf
+$(NAME):		$(OBJS)
+				$(CPP) $(CPPFLAGS) -o $(NAME) $(OBJS)
 
-$(NAME)	:	$(OBJS) $(INC) 
-			$(CXX) $(CXXFLAGS) -o $(NAME) $(OBJS)
+clean:
+				$(RM) $(OBJS)
 
-all		:	$(NAME)
+fclean:			clean
+				$(RM) $(NAME)
 
-%.o		:	%.cpp
-			$(CXX) $(CXXFLAGS) -c $<
+re:				fclean $(NAME)
 
-clean	:	
-			$(RM) $(OBJS)
-
-fclean	:	clean
-			$(RM) $(NAME)
-
-re		:	fclean all
-
-.PHONY	:	all re clean flcean
+.PHONY:			all clean fclean re
