@@ -6,7 +6,7 @@
 /*   By: mtak <mtak@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/23 15:56:00 by mtak              #+#    #+#             */
-/*   Updated: 2021/09/23 16:18:29 by mtak             ###   ########.fr       */
+/*   Updated: 2021/09/27 02:11:52 by mtak             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,12 @@
 #define SIZE2 100000
 #define SIZE3 1000000
 
-void testBigVector(unsigned int n)
+void test(unsigned int n)
 {
 	try
 	{
 		Span sp = Span(n);
-		sp.randomFill(n);
+		sp.randomFillN(n);
 		std::cout << "shortestSpan:\t" << sp.shortestSpan() << std::endl;
 		std::cout << "longestSpan:\t" << sp.longestSpan() << std::endl;
 	}
@@ -32,7 +32,7 @@ void testBigVector(unsigned int n)
 
 int main()
 {
-	std::cout << "-ORIGINAL------" << std::endl;
+	std::cout << "\033[32m--문제지--\033[37m" << std::endl;
 	
 	Span sp = Span(5);
 	
@@ -45,23 +45,21 @@ int main()
 	std::cout << sp.shortestSpan() << std::endl;
 	std::cout << sp.longestSpan() << std::endl;
 
-	
-	
-	std::cout << "-ERRORS--------" << std::endl;
+	std::cout << "\033[34m--에러문이 잘 나오는지 테스트--\033[37m" << std::endl;
 
-	try									//NO MORE SPACE
+	try
 	{
-		sp.addNumber(11);					
+		sp.addNumber(42);					
 	}
 	catch(const std::exception& e)
 	{
 		std::cerr << e.what() << '\n';
 	}
 	
-	try									//TOO FEW ELEMENTS TO MATCH
+	try
 	{
 		Span sp1 = Span(5);
-		sp1.addNumber(5);
+		sp1.addNumber(42);
 		std::cout << sp1.shortestSpan() << std::endl;
 		std::cout << sp1.longestSpan() << std::endl;
 	}
@@ -70,11 +68,11 @@ int main()
 		std::cerr << e.what() << '\n';
 	}
 	
-	try									//NO MORE SPACE
+	try
 	{
-		unsigned int n = 100;
+		unsigned int n = 5;
 		Span sp = Span(n);
-		sp.randomFill(n - 1);
+		sp.randomFillN(n - 1);
 		sp.addNumber(5);
 		sp.addNumber(6);
 	}
@@ -82,24 +80,9 @@ int main()
 	{
 		std::cerr << e.what() << '\n';
 	}
-	
 
-	
-	std::cout << "-LIMITS-----" << std::endl;
-	{
-		unsigned int n = 100;
-		Span sp = Span(n);
-		sp.randomFill(n - 2);
-		sp.addNumber(INT_MAX);
-		sp.addNumber(INT_MIN);
-		std::cout << sp.shortestSpan() << std::endl;
-		std::cout << sp.longestSpan() << std::endl;
-	}
-
-
-
-	std::cout << "-MORE NUMBERS--" << std::endl;
-	testBigVector(SIZE1);
-	testBigVector(SIZE2);
-	testBigVector(SIZE3);
+	std::cout << "\033[35m--문제에서 요구한 최소 10000이상의 수를 커버할 수 있는가--\033[37m" << std::endl;
+	test(10000);
+	test(100000);
+	test(1000000);
 }

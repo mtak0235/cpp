@@ -6,38 +6,33 @@
 #    By: mtak <mtak@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/23 16:18:07 by mtak              #+#    #+#              #
-#    Updated: 2021/09/23 16:18:19 by mtak             ###   ########.fr        #
+#    Updated: 2021/09/26 15:55:03 by mtak             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	=	main
+SRCS = main.cpp \
+		span.cpp
 
-SRCS	=	main.cpp span.cpp
+OBJS			= $(SRCS:.cpp=.o)
 
-INC		=	span.hpp
-	
-OBJS	=	$(SRCS:.cpp=.o)
+CPP				= clang++
+RM				= rm -f
+CPPFLAGS		= -Wall -Wextra -Werror -I. -std=c++98 -pedantic
 
-CXX		=	clang++
+NAME			= span
 
-CXXFLAGS=	 -Wall -Wextra -Werror -std=c++98
+all:			$(NAME)
 
-RM		=	rm -rf
+$(NAME):		$(OBJS)
+				$(CPP) $(CPPFLAGS) -o $(NAME) $(OBJS)
 
-$(NAME)	:	$(OBJS) $(INC) 
-			$(CXX) $(CXXFLAGS) -o $(NAME) $(OBJS) -I.
+clean:
+				$(RM) $(OBJS)
 
-all		:	$(NAME)
+fclean:			clean
+				$(RM) $(NAME)
 
-%.o		:	%.cpp
-			$(CXX) $(CXXFLAGS) -c $< -I.
+re:				fclean $(NAME)
 
-clean	:	
-			$(RM) $(OBJS)
+.PHONY:			all clean fclean re
 
-fclean	:	clean
-			$(RM) $(NAME)
-
-re		:	fclean all
-
-.PHONY	:	all re clean flcean

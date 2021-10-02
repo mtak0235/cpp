@@ -6,7 +6,7 @@
 /*   By: mtak <mtak@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/23 16:19:43 by mtak              #+#    #+#             */
-/*   Updated: 2021/09/27 04:06:32 by mtak             ###   ########.fr       */
+/*   Updated: 2021/09/27 05:50:19 by mtak             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ class MutantStack : public std::stack<T>
 		iterator begin();
 		virtual ~MutantStack();
 };
+
 template <typename T> 
 MutantStack<T>::MutantStack()
 {}

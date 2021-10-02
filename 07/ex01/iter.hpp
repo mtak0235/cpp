@@ -6,7 +6,7 @@
 /*   By: mtak <mtak@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/23 15:28:49 by mtak              #+#    #+#             */
-/*   Updated: 2021/09/24 17:05:16 by mtak             ###   ########.fr       */
+/*   Updated: 2021/09/25 15:56:06 by mtak             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,9 @@ void iter(T* const array, int const & size, void(function)(T const &))
 		function(array[i]);
 }
 
-template<typename T>
-void print(T const &t)
-{
-	std::cout << "print:\t" << t << std::endl;
-}
+// template<typename T>
+// void print(T const &t)
+// {
+// 	std::cout << "print:\t" << t << std::endl;
+// }
 #endif
